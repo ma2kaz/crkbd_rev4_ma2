@@ -1,0 +1,13 @@
+lib:
+D:\Developers\git\kbd_firmware-main\src\qmk\qmk_firmware\.build\obj_tmp_crkbd_rev4_1_standard_via\src
+
+
+findstr /s /c:"rgb_matrix_indicators_kb" *.c
+findstr /s /c:"LAYOUT_split_3x6_3_ex2" *.c
+findstr /s /c:"#define LAYOUT_split_3x6_3_ex2" *.c *.h
+
+[Corne v4でレイヤーごとにLEDを切り替える]
+https://zenn.dev/eholic/articles/qmk-crkbd4-led
+https://github.com/eholic/crkbd_firmware
+
+
