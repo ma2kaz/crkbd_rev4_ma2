@@ -27,13 +27,13 @@ extern uint16_t NUM_LAYERS( void );
  *          「RGB Matrix Effects」を参照
  *
  */
-void keyboard_post_init_user( void )
-{
-    //! LEDの初期設定値は ./rev4_1/config.h の RGB_MATRIX_DEFAULT_MODE で設定できる
-//    RGB_MATRIX_NONE // 0 = エフェクトなし
-//    rgb_matrix_get_mode( RGB_MATRIX_SOLID_COLOR );  // 1 = エフェクトを「固定色（Solid Color）」に設定
-//    RGB_MATRIX_BREATHING  // 5 = エフェクトを「呼吸エフェクト（Breathing）」に設定
-}
+//void keyboard_post_init_user( void )
+//{
+//    //! LEDの初期設定値は ./rev4_1/config.h の RGB_MATRIX_DEFAULT_MODE で設定できる
+////    RGB_MATRIX_NONE // 0 = エフェクトなし
+////    rgb_matrix_get_mode( RGB_MATRIX_SOLID_COLOR );  // 1 = エフェクトを「固定色（Solid Color）」に設定
+////    RGB_MATRIX_BREATHING  // 5 = エフェクトを「呼吸エフェクト（Breathing）」に設定
+//}
 
 
 
@@ -180,7 +180,7 @@ bool rgb_matrix_indicators_advanced_user( uint8_t led_min, uint8_t led_max )
         rgb_matrix_set_color( LD_YY,   rgb.r, rgb.g, rgb.b );
         rgb_matrix_set_color( LD_HH,   rgb.r, rgb.g, rgb.b );
     }
-    return true;
+    return false;
 }
 
 //#endif // RGB_MATRIX_ENABLE
@@ -204,12 +204,13 @@ bool process_record_user( uint16_t keycode, keyrecord_t *record )
 {
     // 現在有効なレイヤーの中で最も高いレイヤー番号を取得
     uint16_t nIndex = 0;
-    bool bReturn = false;
+    bool bReturn = true;
 
     for( nIndex = 0; nIndex < NUM_LAYERS(); nIndex++ ){
         if( keycode == TO( nIndex ) && (record->event.pressed != false) ){
             // TO(nIndex)が押されたときの追加処理
             layer_move( nIndex );
+            return false;
         }
     }
     return bReturn; // 他のキーを通常通り処理
