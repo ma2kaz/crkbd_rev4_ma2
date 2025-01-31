@@ -107,15 +107,16 @@ void set_color_all( uint8_t hsvred, uint8_t hsvgreen, uint8_t hsvblue )
 bool rgb_matrix_indicators_advanced_user( uint8_t led_min, uint8_t led_max )
 {
     uint8_t uLayer = 0;
-//    HSV hsv = { 0x7f, 0x7f, 0x7f };
     RGB rgb;
     const HSV hsv[] = {
         { HSV_CHARTREUSE }, // 黄緑色(ライムグリーン,ブライトグリーン)
         { HSV_BLUE },       // 青色
-        { HSV_RED },        // 赤色
-//      { HSV_TURQUOISE },  // 青緑色(ターコイズ)
+        { HSV_TURQUOISE },  // 青緑色(ターコイズ)
+        { HSV_YELLOW },     // 黄色
         { HSV_TEAL },       // 青緑色(ティール)
-        { HSV_WHITE }       // 白色
+        { HSV_RED },        // 赤色
+        { HSV_WHITE },      // 未使用 ... 白色
+        { HSV_GOLD }        // 未使用 ... 金色(ゴールド)
     };
 
     //! 初期化のために全てのLEDを消灯
